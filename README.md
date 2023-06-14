@@ -10,3 +10,7 @@ Make file contains commands needed.
 
 * `make run` Runs the program
 Ed was here
+Monty3 was here
+Monty2 was here
+
+Caryn & David were here
