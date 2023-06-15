@@ -1,3 +1,5 @@
+from levelup.position import Position
+
 class Character:
     name = ""
     steps = None
@@ -10,5 +12,9 @@ class Character:
         self.position = character_position
         self.map = character_map
     
+    def move(self, direction):
+        new_coordinates = self.calculatePosition(direction, self.position.coordinates)
+        self.position = Position(new_coordinates)
+
     def calculatePosition(self, direction, current_position):
         return self.map.calculatePosition(direction, current_position)
