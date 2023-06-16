@@ -1,6 +1,5 @@
 from unittest import TestCase
 from levelup.position import Position
-
 class TestPositionWithCoordinates(TestCase):
     def setUp(self):
         self.COORDINATES = (5,5)
