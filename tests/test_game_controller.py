@@ -1,12 +1,14 @@
 from unittest import TestCase
 from levelup.controller import GameController
-from levelup.character import Character
+from levelup.character_double import CharacterDouble
 
 
 class TestGameController(TestCase):
+    def setUp(self):
+        self.testObj = GameController()
+
     def test_init(self):
-        testObj = GameController()
-        assert testObj.status != None
+        assert self.testObj.status != None
 
     def start_game(self):
         self.map = Map()
@@ -17,10 +19,8 @@ class TestGameController(TestCase):
         self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
         self.status.move_count = 0
 
-    def create_character(self, character_name: str) -> None:
-        if character_name is not None and character_name != "":
-            self.character = Character(character_name)
-        else:
-            self.character = Character(DEFAULT_CHARACTER_NAME)
-        self.status.character_name = self.character.name
-        
+    def test_create_character(self):
+        name = 'Monty'
+        testCharacter = CharacterDouble(name)
+        self.testObj.create_character(name)
+        self.assertEqual(self.testObj.character.name, testCharacter.name)
