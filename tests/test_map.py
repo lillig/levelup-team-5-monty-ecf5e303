@@ -16,3 +16,9 @@ class TestMap (TestCase):
         for i in inputs:
             validCoordinates = self.testobj.validatePosition(i[0])
             self.assertEqual(validCoordinates, i[1])
+
+    def test_calculate_position(self):
+        inputs = [['N',(4,3), (4,2)], ['S', (6,8), (6,9)], ['E', (3,6), (4,6)], ['W', (8,2), (7,2)], ['W', (0,3), (0,3)]]
+        for i in inputs:
+            newCoordinates = self.testobj.calculatePosition(i[0], i[1])
+            self.assertEqual(newCoordinates, i[2])
